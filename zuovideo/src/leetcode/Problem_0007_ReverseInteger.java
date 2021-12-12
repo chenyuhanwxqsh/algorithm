@@ -1,6 +1,6 @@
 package leetcode;
 
-public class ReverseInteger {
+public class Problem_0007_ReverseInteger {
     public static int reverse(int x) {
         boolean neg = ((x >>> 31) & 1) == 1;
         x = neg ? x : -x;

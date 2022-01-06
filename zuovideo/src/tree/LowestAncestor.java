@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
+//lowest common ancestor
 public class LowestAncestor {
     public static class Node {
         public int value;
@@ -47,6 +48,24 @@ public class LowestAncestor {
             fillParentMap(head.right, parentMap);
         }
     }
+
+    public static Node lowestAncestor3(Node head,Node o1,Node o2){
+        if (head==null||head==o1||head==o2){ //base case
+            return head;
+        }
+        Node left=lowestAncestor3(head.left,o1,o2);
+        Node right=lowestAncestor3(head.right,o1,o2);
+
+        //如果o1是o2的祖先或者o2是o1的祖先,不可能出现这种情况
+        //这个if如果中了，说明返回的head就是最近的共同祖先
+        if (left != null && right != null) {
+            return head;
+        }
+
+        //左右俩棵树并不都有返回值时
+        return left!=null?left:right;
+    }
+
 
     public static Node lowestAncestor2(Node head, Node a, Node b) {
         return process(head, a, b).ans;

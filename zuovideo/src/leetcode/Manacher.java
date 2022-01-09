@@ -17,7 +17,14 @@ public class Manacher {
         for (int i = 0; i < str.length; i++) { // 0 1 2
             // R第一个违规的位置，i>= R
             // i位置扩出来的答案，i位置扩的区域，至少是多大。
+
+            //2*C-i是i'的位置,pArr[2*C-i]是pArr[i']即i'的回文半径大小，这里表示的是第二大情况的第一个情况
+            //R-i是第二大情况的第二个情况
+            //Math.min(pArr[2 * C - i], R - i)可代表第二大情况中所有情况的不用验的区域结果
             pArr[i] = R > i ? Math.min(pArr[2 * C - i], R - i) : 1;
+            //上面这行得到的是涵盖了所有情况中，最后得到都不用验的区域
+
+            //虽然有俩种小情况不需要向外扩进行检验，但是为了代码短，可统一写成都往外扩进行检验，即下面代码
             while (i + pArr[i] < str.length && i - pArr[i] > -1) {
                 if (str[i + pArr[i]] == str[i - pArr[i]])
                     pArr[i]++;
@@ -31,7 +38,7 @@ public class Manacher {
             }
             max = Math.max(max, pArr[i]);
         }
-        return max - 1;
+        return max - 1;//回文序列中处理串(含#)的回文半径减1就是原始串的长度
     }
 
     public static char[] manacherString(String str) {

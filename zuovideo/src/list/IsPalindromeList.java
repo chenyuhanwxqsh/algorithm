@@ -77,6 +77,8 @@ public class IsPalindromeList {
             n1 = n2; // n1 move
             n2 = n3; // n2 move
         }
+
+
         n3 = n1; // n3 -> save last node
         n2 = head;// n2 -> left first node
         boolean res = true;
@@ -88,6 +90,8 @@ public class IsPalindromeList {
             n1 = n1.next; // left to mid
             n2 = n2.next; // right to mid
         }
+
+
         n1 = n3.next;
         n3.next = null;
         while (n1 != null) { // recover list

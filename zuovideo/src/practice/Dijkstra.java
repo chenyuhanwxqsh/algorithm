@@ -8,11 +8,17 @@ import java.util.Map.Entry;
 public class Dijkstra {
 
     public static HashMap<Node, Integer> dijkstra1(Node from) {
+        //从from出发到所有点的最小距离
+        //key:从from出发到达key
+        //value:从from出发到达key的最小距离
+        //如果在表中，没有T的记录，含义是从from出发到T这个点的距离为正无穷
         HashMap<Node, Integer> distanceMap = new HashMap<>();
         distanceMap.put(from, 0);
-        // 打过对号的点
+        // 打过对号的点(已经求过距离的点,存在selectedNodes中,以后再也不碰)
         HashSet<Node> selectedNodes = new HashSet<>();
+
         Node minNode = getMinDistanceAndUnselectedNode(distanceMap, selectedNodes);
+
         while (minNode != null) {
             //  原始点  ->  minNode(跳转点)   最小距离distance
             int distance = distanceMap.get(minNode);
@@ -86,6 +92,7 @@ public class Dijkstra {
                 distanceMap.put(node, distance);
                 insertHeapify(node, size++);
             }
+            //对于isEntered(node)==true&&!inHeap(node)的节点什么都不做
         }
 
         public NodeRecord pop() {
@@ -122,10 +129,12 @@ public class Dijkstra {
             }
         }
 
+        //node是否进过堆
         private boolean isEntered(Node node) {
             return heapIndexMap.containsKey(node);
         }
 
+        //是否在堆上
         private boolean inHeap(Node node) {
             return isEntered(node) && heapIndexMap.get(node) != -1;
         }

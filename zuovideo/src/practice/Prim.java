@@ -28,6 +28,7 @@ public class Prim {
 
         Set<Edge> result = new HashSet<>(); // 依次挑选的的边在result里
 
+        //for循环是为了解决森林的问题(有多个集团)
         for (Node node : graph.nodes.values()) { // 随便挑了一个点
             // node 是开始点
             if (!nodeSet.contains(node)) {
@@ -42,6 +43,7 @@ public class Prim {
                         nodeSet.add(toNode);
                         result.add(edge);
                         for (Edge nextEdge : toNode.edges) {
+                            //即便有可能添加重复的边，但也只是增加了些常数时间，不会影响复杂度，不会影响结果，因为已经出现过的点会被pass
                             priorityQueue.add(nextEdge);
                         }
                     }

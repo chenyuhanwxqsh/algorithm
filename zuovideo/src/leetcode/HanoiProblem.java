@@ -1,5 +1,6 @@
 package leetcode;
 
+//汉诺塔问题
 public class HanoiProblem {
     public static int step1(int[] arr) {
         if (arr == null || arr.length == 0) {

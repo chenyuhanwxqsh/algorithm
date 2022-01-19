@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.TreeSet;
 
+/**
+ * 最小的字典序
+ */
 public class LowestLexicography {
     public static String lowestString1(String[] strs) {
         if (strs == null || strs.length == 0) {

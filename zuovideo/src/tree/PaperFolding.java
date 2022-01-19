@@ -11,6 +11,7 @@ public class PaperFolding {
     // 这个节点如果是凹的话，down = T
     // 这个节点如果是凸的话，down = F
     // 函数的功能：中序打印以你想象的节点为头的整棵树！
+    //中序遍历遍历了所有节点，但是只用了N的空间(因为这个函数共有N层)
     public static void process(int i, int N, boolean down) {
         if (i > N) {
             return;

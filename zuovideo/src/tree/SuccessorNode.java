@@ -1,5 +1,6 @@
 package tree;
 
+//找节点的后继节点
 public class SuccessorNode {
     public static class Node {
         public int value;
@@ -16,14 +17,16 @@ public class SuccessorNode {
         if (node == null) {
             return node;
         }
-        if (node.right != null) {
+        if (node.right != null) {//有右子树时则寻找节点的右子树上的最左孩子
             return getLeftMost(node.right);
-        } else { // 无右子树
+        } else { // 无右子树时
             Node parent = node.parent;
             while (parent != null && parent.right == node) { // 当前节点是其父亲节点右孩子
                 node = parent;
                 parent = node.parent;
             }
+            //当节点是父节点的左孩子时返回
+            //或者父节点为空时(即当node是整棵树上的最右节点时)返回，则为null
             return parent;
         }
     }

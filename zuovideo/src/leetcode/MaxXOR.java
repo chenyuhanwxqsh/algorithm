@@ -124,6 +124,6 @@ public class MaxXOR {
                 break;
             }
         }
-        System.out.println(succeed ? "Nice!" : "Fucking fucked!");
+        System.out.println(succeed ? "Nice!" : "WooooooooW!");
     }
 }

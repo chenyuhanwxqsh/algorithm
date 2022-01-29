@@ -67,5 +67,4 @@ public class Problem_0022_GenerateParentheses {
         }
         return count == 0;
     }
-
 }

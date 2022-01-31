@@ -22,7 +22,7 @@ public class PrintAllPermutationsII {
         }
         boolean[] visit=new boolean[26];//visit[0 1 ..25]用来去重的数组
         //去重是当字符串中有相同的字符时有用
-        for (int j=i;j<str.length;j++) {
+        for (int j=i;j<str.length;j++) {//在每轮循环中将j位置的数和数组中各个数交换
             if (!visit[str[j] - 'a']) {
                 visit[str[j]-'a']=true;
                 swap(str, i, j);

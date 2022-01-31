@@ -280,7 +280,5 @@ public class LongestCommonSubstringConquerByHeight {
         System.out.println("方法2结果 : " + ans2 + " , 运行时间 : " + (end - start) + " ms");
 
         System.out.println("性能测试结束");
-
     }
-
 }

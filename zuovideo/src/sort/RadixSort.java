@@ -11,6 +11,7 @@ public class RadixSort {
         radixSort(arr, 0, arr.length - 1, maxbits(arr));
     }
 
+    //得到数组中最大值有几个十进制位
     public static int maxbits(int[] arr) {
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < arr.length; i++) {
@@ -29,7 +30,8 @@ public class RadixSort {
         final int radix = 10;
         int i = 0, j = 0;
         // 有多少个数准备多少个辅助空间
-        int[] help = new int[R - L + 1];
+        int[] bucket = new int[R - L + 1];//bucket即为视频讲解中的help
+           //感觉这里写成help更好理解，count数组应该是完成了逻辑上桶bucket的功能
         for (int d = 1; d <= digit; d++) { // 有多少位就进出几次
             // 10个空间
             // count[0] 当前位(d位)是0的数字有多少个
@@ -43,20 +45,23 @@ public class RadixSort {
                 j = getDigit(arr[i], d);
                 count[j]++;
             }
+            //把count处理成前缀和
             for (i = 1; i < radix; i++) {
                 count[i] = count[i] + count[i - 1];
             }
+            //数组从右往左遍历
             for (i = R; i >= L; i--) {
                 j = getDigit(arr[i], d);
-                help[count[j] - 1] = arr[i];
+                bucket[count[j] - 1] = arr[i];
                 count[j]--;
-            }
+            }//次循环结束之后相当于所有数字出桶了放入到bucket这个辅助数组中去
             for (i = L, j = 0; i <= R; i++, j++) {
-                arr[i] = help[j];
+                arr[i] = bucket[j];
             }
         }
     }
 
+    //按要求取出d位的数
     public static int getDigit(int x, int d) {
         return ((x / ((int) Math.pow(10, d - 1))) % 10);
     }

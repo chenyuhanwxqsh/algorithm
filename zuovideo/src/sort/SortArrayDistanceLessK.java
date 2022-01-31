@@ -8,11 +8,11 @@ public class SortArrayDistanceLessK {
         if (k==0){
             return;
         }
-        //默认小根堆
+        //默认小根堆 (在java中小根堆默认就是优先级队列PriorityQueue的意思)
         PriorityQueue<Integer> heap =new PriorityQueue<>();
         int index=0;
         //0...k-1
-        for (;index<=Math.min(arr.length,k);index++){
+        for (;index<Math.min(arr.length,k);index++){
             heap.add(arr[index]);
         }
         int i=0;

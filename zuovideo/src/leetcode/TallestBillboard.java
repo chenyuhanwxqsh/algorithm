@@ -34,5 +34,4 @@ public class TallestBillboard {
         }
         return dp.get(0);
     }
-
 }

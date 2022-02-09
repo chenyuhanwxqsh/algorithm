@@ -51,5 +51,4 @@ public class Problem_0587_ErectTheFence {
         int[] c = { 1, 5 };
         System.out.println(cross(a, b, c));
     }
-
 }

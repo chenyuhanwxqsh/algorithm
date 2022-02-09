@@ -1,6 +1,7 @@
 package leetcode;
 
 // 四边形不等式：合并石子问题
+
 public class StoneMerge {
 
     public static int[] sum(int[] arr) {

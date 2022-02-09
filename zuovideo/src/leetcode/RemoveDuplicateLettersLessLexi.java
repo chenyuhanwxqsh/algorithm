@@ -70,5 +70,4 @@ public class RemoveDuplicateLettersLessLexi {
         }
         return String.valueOf(res, 0, index);
     }
-
 }

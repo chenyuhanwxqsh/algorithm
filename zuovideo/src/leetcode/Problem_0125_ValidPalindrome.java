@@ -47,5 +47,4 @@ public class Problem_0125_ValidPalindrome {
     public static boolean isNumber(char c) {
         return (c >= '0' && c <= '9');
     }
-
 }

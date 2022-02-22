@@ -25,5 +25,4 @@ public class Problem_0056_MergeIntervals {
         intervals[size++][1] = e;
         return Arrays.copyOf(intervals, size);
     }
-
 }
